@@ -67,6 +67,7 @@ public class TestAdminLearner extends TestBase{
 		
 		
 	}
+	//@Test(priority=0)
 	public void bulklearner()
 	{
 		ClassObjects.trainingheadleanerform.addbulk();
@@ -86,9 +87,9 @@ public class TestAdminLearner extends TestBase{
 		 ClassObjects.loginpage =new LoginPage(driver);
 		 ClassObjects.trainingheadleanerform=new TrainerHead(driver);
 		 
-		 Assert.assertTrue(ClassObjects.trainingheadleanerform.search("KKEM-DSA-MAY22-021"), "not found");
-		 Assert.assertTrue(ClassObjects.adminlearner.updatelearner("KKEM-DSA-MAY22-021"), "not found");
-	     Assert.assertTrue(ClassObjects.adminlearner.deletelearner("89"), "not found");
+		 Assert.assertTrue(ClassObjects.trainingheadleanerform.search("45"), "not found");
+		 Assert.assertTrue(ClassObjects.adminlearner.updatelearner("45"), "not found");
+	     Assert.assertTrue(ClassObjects.adminlearner.deletelearner("45"), "not found");
 		
 		 Thread.sleep(1000);
 		 ClassObjects.loginpage.logout();
