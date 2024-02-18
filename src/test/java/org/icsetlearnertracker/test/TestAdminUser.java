@@ -120,7 +120,7 @@ public class TestAdminUser extends TestBase{
 	    Assert.assertFalse(ClassObjects.adminuser.selrole("Admin"),"Mutliple dropdown");
 	    ClassObjects.adminuser.clicksubmit();
 	    Assert.assertEquals(ClassObjects.adminuser.emailerrormsg(), "Must be a valid Email ID");
-	    
+	    ClassObjects.adminuser.clickbacktodashboard();
 	    softassert2.assertAll();
 	    
 		
