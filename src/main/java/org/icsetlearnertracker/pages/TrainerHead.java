@@ -323,7 +323,8 @@ public class TrainerHead {
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].scrollIntoView()",next);
 		
-		
+		WebDriverWait wait1=new WebDriverWait(driver,Duration.ofSeconds(2000));
+		wait1.until(ExpectedConditions.visibilityOf(next));
 		
 		boolean found=false;
 		
@@ -334,6 +335,7 @@ public class TrainerHead {
 			for(int j=1;j<=column.size();j++)
 			{
 				WebElement ele=driver.findElement(By.xpath("//div[@class='table-responsive']//child::tbody//tr[" + i + "]//td[1]"));
+				Thread.sleep(1000);
 				JavascriptExecutor jo=(JavascriptExecutor)driver;
 				jo.executeScript("arguments[0].scrollIntoView()",ele);
 				WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(2000));
@@ -350,8 +352,8 @@ public class TrainerHead {
 					JavascriptExecutor ji=(JavascriptExecutor)driver;
 					ji.executeScript("arguments[0].scrollIntoView()",next);
 					Thread.sleep(1000);
-					WebDriverWait wait1=new WebDriverWait(driver,Duration.ofSeconds(2000));
-					wait1.until(ExpectedConditions.visibilityOf(next));
+					WebDriverWait wait2=new WebDriverWait(driver,Duration.ofSeconds(2000));
+					wait2.until(ExpectedConditions.visibilityOf(next));
 					JavascriptExecutor je=(JavascriptExecutor)driver;
 					je.executeScript("arguments[0].click();",next);
 					Thread.sleep(1000);
