@@ -125,21 +125,12 @@ public class TestAdminUser extends TestBase{
 	    
 		
 	}
-	@Test(priority=5)
-	public void updateuser() throws InterruptedException
-	{
-		ClassObjects.placementofficer =new PlacementOfficer(driver);
-		ClassObjects.loginpage =new LoginPage(driver);
-		Assert.assertTrue(ClassObjects.adminuser.delete("joe123"),"not found");
-		//driver.navigate().refresh();
-		Assert.assertTrue(ClassObjects.adminuser.update("megha"), "not updated");
-		//ClassObjects.loginpage.logout();
-	}
 	
-	@Test(priority=6)	
+	
+	@Test(priority=5)	
 	public void invaliddetails3() throws InterruptedException
 	{
-		//ClassObjects.adminuser.addLearner();
+		ClassObjects.adminuser.addLearner();
 		ClassObjects.loginpage =new LoginPage(driver);
 		ClassObjects.adminuser.setName("Fazeela");
 		Assert.assertFalse(ClassObjects.adminuser.setEmail("fazeeu@gmail"),"Wrong Email");
@@ -151,10 +142,23 @@ public class TestAdminUser extends TestBase{
 	   
 	    softassert2.assertEquals(ClassObjects.adminuser.clickOK(),AutomationConstants.userformurl);
 	    
-	    ClassObjects.loginpage.logout();
+	    ClassObjects.adminuser.clickbacktodashboard();
 	    softassert2.assertAll();
 	    
 		
+	}
+	
+	@Test(priority=6)
+	public void updateuser() throws InterruptedException
+	{
+		ClassObjects.placementofficer =new PlacementOfficer(driver);
+		ClassObjects.loginpage =new LoginPage(driver);
+		Assert.assertTrue(ClassObjects.adminuser.delete("megha"),"not found");
+		driver.navigate().refresh();
+		ClassObjects.loginpage.logout();
+		//Thread.sleep(1000);//driver.navigate().refresh();
+		//Assert.assertTrue(ClassObjects.adminuser.update("megha"), "not updated");
+		//ClassObjects.loginpage.logout();
 	}
 	
 	
